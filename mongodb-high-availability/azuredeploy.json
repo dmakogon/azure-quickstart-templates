@@ -47,6 +47,7 @@
       "type": "string",
       "allowedValues": [
         "West US",
+        "Central US",
         "East US",
         "East US 2",
         "East Asia",
@@ -112,7 +113,8 @@
         "Medium",
         "Large",
         "XLarge",
-        "XXLarge"
+        "XXLarge",
+        "Tesla"
       ],
       "metadata": {
         "description": "T-shirt size of the MongoDB deployment"
@@ -209,6 +211,16 @@
       "arbiter": "Disabled",
       "vmTemplate": "[concat(variables('templateBaseUrl'), 'member-resources-D3.json')]",
       "storageAccountCount": 8,
+      "dataDiskSize": 512
+    },
+    "tshirtSizeTesla": {
+      "vmSizeMember": "[concat('Standard_', parameters('vmSeries'), '3')]",
+      "vmSizeArbiter": "[concat('Standard_', parameters('vmSeries'), '1')]",
+      "numberOfMembers": 3,
+      "totalMemberCount": 4,
+      "arbiter": "Enabled",
+      "vmTemplate": "[concat(variables('templateBaseUrl'), 'member-resources-D3.json')]",
+      "storageAccountCount": 1,
       "dataDiskSize": 512
     },
     "osFamilyUbuntu": {
@@ -317,7 +329,9 @@
     "storageAccountForXXLarge_12": "4",
     "storageAccountForXXLarge_13": "5",
     "storageAccountForXXLarge_14": "6",
-    "storageAccountForXXLarge_15": "7"
+    "storageAccountForXXLarge_15": "7",
+    "storageAccountForTesla_0" : "0",
+    "storageAccountForTesla_1" : "1"
   },
   "resources": [
     {
